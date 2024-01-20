@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <h1>ProjectPilot</h1>
+        </div>
+        <div class="header-right">
+			<div id="search-projects">
+                <input type="text" id="search-input" placeholder="Search projects" oninput="filterProjects()">
+            </div>
+            <button id="add-project-button">Add Project</button>
+        </div>
+		
+    </div>
+
+    <div>
+        <h2>My Projects</h2>
+    </div>
+
+    <div class="project-list">
+        <!-- projects will be added here by the JavaScript code -->
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
