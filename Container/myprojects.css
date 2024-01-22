@@ -1,150 +1,173 @@
-
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .header {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between; /* Align items to the start and end of the header */
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header-left {
-    flex: 1; /* Take up available space in the flex container */
+  flex: 1;
 }
 
 .header-right {
-    display: flex;
-    align-items: center; /* Center items vertically within the container */
+  display: flex;
+  align-items: center;
 }
 
-
 #search-projects {
-    margin-right: 10px; /* Add margin to separate the search input and the button */
+  margin-right: 10px;
 }
 
 #search-input {
-    padding: 5px;
-    font-size: 14px;
+  padding: 5px;
+  font-size: 14px;
 }
 
-
 #add-project-button {
-    padding: 5px 10px;
-    font-size: 14px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 #add-project-button:hover {
-    background-color: #45a049;
+  background-color: #45a049;
 }
 
-
 .project-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px;
 }
 
 .project {
-    background-color: #f2f2f2;
-    border: 1px solid #ddd;
-    flex-basis: 30%;
-    margin-bottom: 20px;
-    padding: 20px;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  flex-basis: 30%;
+  margin-bottom: 20px;
+  padding: 20px;
 }
 
 .project h2 {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .project a {
-    display:block;
-    margin-top: 10px;
+  display: block;
+  margin-top: 10px;
 }
-/* General form styles */
-#project-form {
-    background-color: #f5f5f5;
-    padding: 20px;
-    border: 1px solid #ddd;
-    margin-top: 20px; /* Add some space above the form */
-    z-index:100;
-  }
-  
-  #project-form h2 {
-    margin-top: 0;
-  }
-  
-  #project-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  #project-form input,
-  #project-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    box-sizing: border-box; /* Ensure consistent sizing */
-  }
-  
-  #project-form textarea {
-    height: 100px;
-  }
-  
-  #project-form button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-   
-  }
-  
-  #project-form button:hover {
-    background-color: #45a049;
-  }
-  body.popup-open {
-    overflow: hidden; /* Prevent scrolling while popup is open */
-  }
 
-/* CSS class for the + button */
+#project-form {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border: 1px solid #ddd;
+  margin-top: 20px;
+  z-index: 100;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+#project-form h2 {
+  margin-top: 0;
+}
+
+#project-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#project-form input,
+#project-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+#project-form textarea {
+  height: 100px;
+}
+
+#project-form button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#project-form button:hover {
+  background-color: #45a049;
+}
+
+body.popup-open {
+  overflow: hidden;
+}
+
 .addButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  
-  width: 40px; /* Adjust width as needed */
-  height: 40px; /* Adjust height as needed */
-  border-radius: 50%; /* Make it a circle */
-  background-color: rgba(0, 0, 255, 0.5); /* Blue and transparent background */
-  color: white; /* Text color */
-  font-size: 20px; /* Adjust font size as needed */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 255, 0.5);
+  color: white;
+  font-size: 20px;
   cursor: pointer;
   border: none;
   outline: none;
   text-align: center;
-  line-height: 1; /* Center text vertically */
-  
+  line-height: 1;
 }
 
 .addButton:hover {
-  background-color: rgba(0, 0, 255, 0.8); /* Darker blue on hover */
+  background-color: rgba(0, 0, 255, 0.8);
 }
 
-/* CSS to make label and dropdown list inline */
 .num-members-container {
   display: inline;
-  margin-right: 10px; /* Adjust margin as needed */
+  margin-right: 10px;
 }
 
+/* Style for two-column form layout */
+.form-column {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Style for member input boxes */
+.member-container {
+  margin-bottom: 10px;
+}
+
+/* Additional styles for task list */
+#project-tasks-section {
+  margin-top: 20px;
+}
+
+.task-container {
+  margin-bottom: 10px;
+}
+
+#task-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#task-list li {
+  margin-bottom: 5px;
+}

@@ -1,9 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" type="text/css" href="myprojects.css">
 </head>
+
 <body>
     <div class="header">
         <div class="header-left">
@@ -28,7 +29,7 @@
     <div id="project-form" style="display: none;">
         <h2>New Project</h2>
         <form id="add-project-form">
-            <header><label for="project-title">Project Title:</label></header>
+            <label for="project-title">Project Title:</label>
             <input type="text" id="project-title" name="project-title"><br>
 
             <label for="project-description">Description:</label>
@@ -53,17 +54,38 @@
                     <option value="10">10</option>
                 </select>
             </div><br><br>
-            
+
             <!-- New label and input box to add members -->
             <label for="add-members">Add Members:</label>
             <input type="text" id="add-members" name="add-members">
             <!-- + button with the addButton class -->
             <button type="button" class="addButton" onclick="addMember()">+</button><br><br><br>
-            <button type="submit">Next</button>
-          
+
+            <!-- New section for Project Guide and Project Leader -->
+            <label for="project-guide">Project Guide:</label>
+            <input type="text" id="project-guide" name="project-guide"><br>
+
+            <label for="project-leader">Project Leader:</label>
+            <input type="text" id="project-leader" name="project-leader"><br>
+
+            <!-- New section for adding project tasks -->
+            <h3>Add Project Tasks</h3>
+
+            <!-- Task container for task input and + button -->
+            <div class="task-container">
+                <label for="add-task">Task:</label>
+                <input type="text" id="add-task" name="add-task">
+                <button type="button" class="addButton" onclick="addTask()">+</button>
+            </div>
+
+            <!-- Task list to display added tasks -->
+            <ul id="task-list"></ul>
+
+            <button type="submit">Add Project</button>
         </form>
     </div>
 
     <script src="myprojects.js"></script>
 </body>
+
 </html>
