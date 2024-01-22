@@ -29,13 +29,18 @@ function renderProject(project) {
     progressElement.textContent = `${project.progress}%`;
     projectElement.appendChild(progressElement);
 
-    const linkElement = document.createElement('a');
-    linkElement.textContent = 'Open Project >';
-    linkElement.href = '#';
-    projectElement.appendChild(linkElement);
+    const buttonElement = document.createElement('button');
+    buttonElement.textContent = 'Open Project';
+    buttonElement.classList.add('open-button');
+    buttonElement.addEventListener('click', function() {
+        // Your logic to handle the button click and open the project goes here
+        console.log('Project opened:', project.title);
+    });
+    projectElement.appendChild(buttonElement);
 
     projectList.appendChild(projectElement);
 }
+
 
 // Function to render all projects
 function renderProjects() {

@@ -51,11 +51,16 @@ body {
 }
 
 .project {
-  background-color: #f2f2f2;
+  background-color: #ebebeb;
   border: 1px solid #ddd;
   flex-basis: 30%;
   margin-bottom: 20px;
   padding: 20px;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.5); /* Increase the box shadow on hover */
+  transition: transform 0.3s ease-in-out;
+  border-radius: 16px;
+
 }
 
 .project h2 {
@@ -171,3 +176,30 @@ body.popup-open {
 #task-list li {
   margin-bottom: 5px;
 }
+
+
+
+
+.project:hover {
+  transform: scale(1.05); /* Increase the size on hover */
+}
+
+.open-button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add box shadow transition */
+  border-radius: 15px;
+  /* Add box shadow */
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+.open-button:hover {
+  background-color: #3e8f41; /* Change the background color on hover */
+  box-shadow: 0 6px 12px rgba(52, 152, 219, 0.5); /* Increase the box shadow on hover */
+}
+
+
