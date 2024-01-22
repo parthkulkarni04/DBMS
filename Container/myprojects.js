@@ -81,3 +81,20 @@ addProjectForm.addEventListener('submit', (event) => {
 });
 // Render the projects when the page loads
 // renderProjects();
+
+  // Sample JavaScript function to add members
+  function addMember() {
+    var inputBox = document.getElementById('add-members');
+    var memberList = document.getElementById('member-list');
+
+    // Get the value from the input box
+    var newMember = inputBox.value;
+
+    // Create a new list item and append it to the member list
+    var listItem = document.createElement('li');
+    listItem.textContent = newMember;
+    memberList.appendChild(listItem);
+
+    // Clear the input box after adding a member
+    inputBox.value = '';
+}
