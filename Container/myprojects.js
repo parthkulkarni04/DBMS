@@ -2,51 +2,53 @@ const projectList = document.querySelector('.project-list');
 const addProjectButton = document.querySelector('#add-project-button');
 const projectForm = document.querySelector('#project-form');
 const addProjectForm = document.querySelector('#add-project-form');
+const taskList = document.getElementById('task-list');
+let memberIdCounter = 1; // Counter for dynamic member input boxes
+
 // Sample project data
 const projects = [];
 
 // Function to render a single project
 function renderProject(project) {
-  const projectElement = document.createElement('div');
-  projectElement.classList.add('project');
+    const projectElement = document.createElement('div');
+    projectElement.classList.add('project');
 
-  const titleElement = document.createElement('h2');
-  titleElement.textContent = project.title;
-  projectElement.appendChild(titleElement);
+    const titleElement = document.createElement('h2');
+    titleElement.textContent = project.title;
+    projectElement.appendChild(titleElement);
 
-  const descriptionElement = document.createElement('p');
-  descriptionElement.textContent = project.description;
-  projectElement.appendChild(descriptionElement);
+    const descriptionElement = document.createElement('p');
+    descriptionElement.textContent = project.description;
+    projectElement.appendChild(descriptionElement);
 
-  const membersElement = document.createElement('p');
-  membersElement.textContent = `${project.members} member(s)`;
-  projectElement.appendChild(membersElement);
+    const membersElement = document.createElement('p');
+    membersElement.textContent = `${project.members} member(s)`;
+    projectElement.appendChild(membersElement);
 
-  const progressElement = document.createElement('p');
-  progressElement.textContent = `${project.progress}%`;
-  projectElement.appendChild(progressElement);
+    const progressElement = document.createElement('p');
+    progressElement.textContent = `${project.progress}%`;
+    projectElement.appendChild(progressElement);
 
-  const linkElement = document.createElement('a');
-  linkElement.textContent = 'Open Project >';
-  linkElement.href = '#';
-  projectElement.appendChild(linkElement);
+    const linkElement = document.createElement('a');
+    linkElement.textContent = 'Open Project >';
+    linkElement.href = '#';
+    projectElement.appendChild(linkElement);
 
-  projectList.appendChild(projectElement);
+    projectList.appendChild(projectElement);
 }
 
 // Function to render all projects
 function renderProjects() {
-  projects.forEach(renderProject);
+    projects.forEach(renderProject);
 }
 
-
-//add event listener to add project button
+// Add event listener to add project button
 addProjectButton.addEventListener('click', () => {
-  projectForm.style.display = 'block';
-  projectForm.style.position = 'fixed';
-  projectForm.style.top = '100px'; // Adjust as needed
-  projectForm.style.right = '100px'; // Adjust as needed
-  projectForm.style.padding = '50px'; // Add padding
+    projectForm.style.display = 'block';
+    projectForm.style.position = 'fixed';
+    projectForm.style.top = '100px'; // Adjust as needed
+    projectForm.style.right = '100px'; // Adjust as needed
+    projectForm.style.padding = '50px'; // Add padding
 });
 
 // Event listener to handle form submission
@@ -56,15 +58,22 @@ addProjectForm.addEventListener('submit', (event) => {
     // Get form data
     const projectTitle = document.querySelector('#project-title').value;
     const projectDescription = document.querySelector('#project-description').value;
-    const projectDeadline = document.querySelector('#project-deadline').value;
+    const projectStartDate = document.querySelector('#project-Startdate').value;
+    const numMembers = document.querySelector('#num-members').value;
+    const projectGuide = document.querySelector('#project-guide').value;
+    const projectLeader = document.querySelector('#project-leader').value;
+    const tasks = Array.from(document.querySelectorAll('#task-list li')).map(item => item.textContent);
 
     // Create a new project object
     const newProject = {
         title: projectTitle,
         description: projectDescription,
-        members: 1, // Assuming a new project starts with 1 member
+        members: numMembers,
         progress: 0,
-        deadline: projectDeadline
+        startDate: projectStartDate,
+        guide: projectGuide,
+        leader: projectLeader,
+        tasks: tasks,
     };
 
     // Add the new project to the list and render it
@@ -79,22 +88,42 @@ addProjectForm.addEventListener('submit', (event) => {
 
     // You might want to send the data to a server here for persistent storage
 });
-// Render the projects when the page loads
-// renderProjects();
 
-  // Sample JavaScript function to add members
-  function addMember() {
-    var inputBox = document.getElementById('add-members');
-    var memberList = document.getElementById('member-list');
+// Sample JavaScript function to add members
+function addMember() {
+    const numMembers = document.querySelector('#num-members').value;
+
+    if (numMembers > 0) {
+        const memberContainer = document.createElement('div');
+        memberContainer.classList.add('member-container');
+
+        for (let i = 0; i < numMembers; i++) {
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.name = `member-${memberIdCounter++}`;
+            input.placeholder = `Member ${i + 1}`;
+            memberContainer.appendChild(input);
+        }
+
+        document.querySelector('#add-members').appendChild(memberContainer);
+    }
+}
+
+// Sample JavaScript function to add tasks
+function addTask() {
+    const inputBox = document.getElementById('add-task');
 
     // Get the value from the input box
-    var newMember = inputBox.value;
+    const newTask = inputBox.value;
 
-    // Create a new list item and append it to the member list
-    var listItem = document.createElement('li');
-    listItem.textContent = newMember;
-    memberList.appendChild(listItem);
+    // Create a new list item and append it to the task list
+    const listItem = document.createElement('li');
+    listItem.textContent = newTask;
+    taskList.appendChild(listItem);
 
-    // Clear the input box after adding a member
+    // Clear the input box after adding a task
     inputBox.value = '';
 }
+
+// Render the projects when the page loads
+// renderProjects();
