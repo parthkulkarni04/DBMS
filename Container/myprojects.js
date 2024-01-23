@@ -135,3 +135,18 @@ function addTask() {
 
 // Render the projects when the page loads
 // renderProjects();
+function filterProjects() {
+    const searchInput = document.getElementById('search-input').value.toLowerCase();
+    const projectElements = document.querySelectorAll('.project');
+
+    projectElements.forEach((projectElement) => {
+        const title = projectElement.querySelector('h2').textContent.toLowerCase();
+        const description = projectElement.querySelector('p').textContent.toLowerCase();
+
+        if (title.includes(searchInput) || description.includes(searchInput)) {
+            projectElement.style.display = 'block'; // Show matching project
+        } else {
+            projectElement.style.display = 'none'; // Hide non-matching project
+        }
+    });
+}
