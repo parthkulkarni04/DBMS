@@ -8,10 +8,12 @@ let memberIdCounter = 1; // Counter for dynamic member input boxes
 // Sample project data
 const projects = [];
 
-// Function to render a single project
 function renderProject(project) {
     const projectElement = document.createElement('div');
     projectElement.classList.add('project');
+    projectElement.style.margin = '30px'; // Adjust as needed for the space between projects
+    projectElement.style.width = '100px'; // Set the width of the project box
+    projectElement.style.height = '175px'; // Set the height of the project box
 
     const titleElement = document.createElement('h2');
     titleElement.textContent = project.title;
@@ -40,6 +42,7 @@ function renderProject(project) {
 
     projectList.appendChild(projectElement);
 }
+
 
 
 // Function to render all projects
